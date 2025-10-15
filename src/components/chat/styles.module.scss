@@ -1,0 +1,28 @@
+@use "@styles/variables.scss" as variables;
+
+.chatContainer {
+  background-color: var(--Background-Primary);
+  padding: 10px 12px 10px 14px;
+  border-radius: 25px;
+  width: 300px;
+}
+
+.chatInputContainer {
+  display: flex;
+}
+
+.chatInput {
+  width: 100%;
+  background: none;
+  border: none;
+  color: var(--Text-Primary);
+
+  &:focus {
+    outline: none;
+    border: none;
+  }
+
+  &::placeholder {
+    color: var(--Text-Placeholder);
+  }
+}
