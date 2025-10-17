@@ -1,73 +1,191 @@
-# React + TypeScript + Vite
+## AI Chat — Portfolio Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An AI-powered chat application built with React, TypeScript, and Vite on the frontend, and a lightweight Express server on the backend. The backend proxies requests to the Groq API, augmenting prompts with clear system directions and a curated curriculum vitae to provide context-aware answers.
 
-Currently, two official plugins are available:
+### Demo Goals
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Showcase frontend engineering (UI/UX, state, modular components)
+- Demonstrate full-stack integration and API design
+- Use a real LLM provider (Groq) with a clean prompt engineering approach
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech Stack
 
-## Expanding the ESLint configuration
+### Frontend
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- React 19, TypeScript
+- Vite 7
+- SCSS Modules
+- Component-driven structure with hooks
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Backend
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- Node.js (ESM) + Express
+- Groq OpenAI-compatible Chat Completions API
+- dotenv, cors
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Tooling
+
+- ESLint (TypeScript config)
+- Concurrent dev runner via `concurrently`
+
+---
+
+## Project Structure
+
+```text
+ai-chat/
+├─ server/
+│  ├─ index.js              # Express server (ESM)
+│  ├─ consts.js             # Base prompt directions
+│  └─ curriculum.json       # Context provided to the LLM
+├─ src/
+│  ├─ components/
+│  │  ├─ chat/
+│  │  └─ chat-message/
+│  ├─ hooks/
+│  │  └─ use-chat-history.ts
+│  └─ network/              # API client and services
+│     ├─ api.ts
+│     ├─ chat.service.ts
+│     └─ types.ts
+├─ package.json
+└─ README.md
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Setup
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### 1) Install dependencies
+
+```bash
+npm install
 ```
+
+### 2) Configure environment
+
+Create `.env.local` in the project root with your Groq API key:
+
+```bash
+GROQ_API_KEY=your_actual_groq_api_key_here
+```
+
+### 3) Run development servers
+
+Run frontend and backend together:
+
+```bash
+npm start
+# or
+npm run dev:full
+```
+
+Run only backend:
+
+```bash
+npm run dev:backend
+# server at http://localhost:3001
+```
+
+Run only frontend:
+
+```bash
+npm run dev
+# Vite at http://localhost:5173
+```
+
+---
+
+## API
+
+Backend base URL: `http://localhost:3001`
+
+### POST `/api/chat`
+
+Request:
+
+```json
+{
+  "prompt": "Your question for the AI"
+}
+```
+
+Response:
+
+```json
+{
+  "reply": "Model-generated response",
+  "timestamp": "2025-01-01T12:00:00.000Z"
+}
+```
+
+Notes:
+
+- The server sends three messages to Groq:
+  - `system`: Directions (`BASE_PROMPT_DIRECTIONS`)
+  - `system`: Curriculum JSON as text
+  - `user`: Your prompt
+- Model used: `llama-3.1-8b-instant`
+
+Health check (optional): `GET /health`
+
+---
+
+## Frontend Integration
+
+The chat UI uses a small network layer and a chat hook to manage state.
+
+Key pieces:
+
+- `src/network/api.ts`: Minimal API client with error handling
+- `src/network/chat.service.ts`: Chat-specific endpoint wrapper
+- `src/hooks/use-chat-history.ts`: Manages chat history, loading and error state, and calls the service
+
+Example usage (hook):
+
+```ts
+const { chatHistory, isLoading, error, sendMessage } = useChatHistory();
+await sendMessage("Tell me about my experience with React Native");
+```
+
+---
+
+## Scripts
+
+```json
+{
+  "dev": "vite", // frontend only
+  "dev:backend": "node server/index.js", // backend only
+  "dev:full": "concurrently --kill-others --prefix \"[{name}]\" --names \"backend,frontend\" \"npm run dev:backend\" \"npm run dev\"",
+  "start": "npm run dev:full",
+  "build": "tsc -b && vite build",
+  "preview": "vite preview",
+  "lint": "eslint ."
+}
+```
+
+---
+
+## Development Notes
+
+- This project follows a modular structure with clear separation of concerns.
+- Prompts are structured to maximize relevance and clarity for the LLM.
+- The chat input is controlled and auto-scrolls on new messages.
+- Error and loading states are handled gracefully in the UI.
+
+---
+
+## License
+
+This repository is part of a personal portfolio. Feel free to explore and reference code; please contact the author for reuse beyond evaluation or interview purposes.
+
+---
+
+## Author
+
+**Agustín Vaghi** — Senior Full Stack Developer
+
+- LinkedIn: https://www.linkedin.com/in/agustin-vaghi/
+- Email: vaghi.agustin@gmail.com
