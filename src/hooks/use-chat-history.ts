@@ -12,18 +12,7 @@ interface UseChatHistoryReturn {
 }
 
 export const useChatHistory = (): UseChatHistoryReturn => {
-  const mockValues: ChatHistoryItem[] = [
-    { id: "1", value: "Hello there", source: MessageSender.USER },
-    {
-      id: "3",
-      value: "General Kenobi, you are a bold one! Kill him!",
-      source: MessageSender.AGENT,
-    },
-  ];
-
-  const [chatHistory, setChatHistory] = useState<ChatHistoryItem[]>([
-    ...mockValues,
-  ]);
+  const [chatHistory, setChatHistory] = useState<ChatHistoryItem[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<ApiError | null>(null);
 

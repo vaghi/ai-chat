@@ -1,0 +1,255 @@
+{
+  "personal_information": {
+    "name": "Vaghi Agustin",
+    "title": "Senior Full Stack Developer",
+    "location": "Buenos Aires, Argentina",
+    "phone": "+54 11 6799 2343",
+    "email": "vaghi.agustin@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/agustin-vaghi/"
+  },
+  "presentation": {
+    "summary": "I'm a Senior full-stack developer with 10+ years of professional experience working with frontend and backend infrastructures. I started as a backend developer, and got in love with the frontend, the designs, animations and logic involved. I’m always looking to learn new technologies, tools and new challenges.",
+    "career_focus": "Despite starting as a backend dev, I’m looking to keep working with frontend technologies, in a full-stack or frontend position, as a developer or tech leader, but always close to the code."
+  },
+  "technologies": {
+    "general_proficiency": [
+      "CSS Proficiency / Animations / Tailwind",
+      "ReactJS",
+      "AngularJS",
+      "Redux / Saga / Context",
+      "Javascript / Typescript",
+      "Jest / Enzyme / React Testing Library / xUnit / MSTest",
+      ".Net",
+      "Bootstrap / MUI / Ionic",
+      "Git / TFS / SVN",
+      "REST APIs",
+      "LINQ"
+    ],
+    "expert": [
+      "React Native",
+      "Angular 6",
+      "SAPUI5",
+      "Recoil",
+      "Playwright / Cypress",
+      "JAVA",
+      "NHibernate",
+      "SQL Server",
+      "C3.js / D3.js",
+      "Oracle"
+    ],
+    "advanced": ["Next.js", "Node.js", "MySQL"],
+    "intermediate": []
+  },
+  "experience": [
+    {
+      "title": "Senior Frontend Developer",
+      "company": "Squire",
+      "period": "Jan 2025 / Sep 2025",
+      "technologies_used": [
+        "ReactJs",
+        "React Query",
+        "Typescript",
+        "SCSS",
+        "Figma",
+        "Jest"
+      ],
+      "responsibilities": [
+        "Developing features for the main web app, fully responsive and pixel perfect.",
+        "Creating base components to be used across app and teams.",
+        "Developing new UI interfaces, creating an AI chat and tools to enable users create content dynamically."
+      ]
+    },
+    {
+      "title": "Senior Frontend Developer",
+      "company": "Cultos",
+      "period": "Nov 2022 / Dec 2024",
+      "technologies_used": [
+        "ReactJs",
+        "Typescript",
+        "Tailwind CSS",
+        "CSS",
+        "Playwright",
+        "Cypress",
+        "Ionic",
+        "Capacitor",
+        "Signals",
+        "MUI",
+        "GraphQL"
+      ],
+      "responsibilities": [
+        "Working with agile methodology on the first release of an iOS app.",
+        "Developing precise responsive designs and animations with CSS from Figma.",
+        "Developing the frontend logic, new features, proposing and implementing design and logic solutions.",
+        "Creating and maintaining unit tests and e2e tests across the app.",
+        "Using Ionic as a UI framework and Capacitor to build the app for devices and interact with the peripherals.",
+        "Creating custom packages with bit.cloud to reuse components for the Web part."
+      ]
+    },
+    {
+      "title": "Senior Frontend Developer / CTL",
+      "company": "Distillery",
+      "period": "Feb 2021 / Oct 2022",
+      "technologies_used": [
+        "ReactJs",
+        "Redux",
+        "GraphQL",
+        "Next.js",
+        "CSS",
+        "Typescript",
+        "Jest",
+        "Cypress"
+      ],
+      "responsibilities": [
+        "Part of a team dedicated to SEO improvements.",
+        "Developing on the frontend, creating new components, as well as fixing or changing existing ones, with a responsive design.",
+        "Migrating Redux in favor of GraphQL and implementing Next.js.",
+        "Creating and maintaining unit tests across the app.",
+        "Adding and updating schema markups, and applying A/B testing and other changes proposed by SEO experts.",
+        "Company Team Leader (CTL) of 5 people, tracking hours, objectives, and team mood with company and client.",
+        "Tech interviewer for new frontend positions."
+      ]
+    },
+    {
+      "title": "Senior Fronnd Developer / Tech Lead",
+      "company": "J.P. Morgan & Chase",
+      "period": "Jul 2018 / Feb 2021",
+      "technologies_used": [
+        "ReactJs",
+        "Redux",
+        "Saga",
+        "CSS",
+        "Typescript",
+        "Jest",
+        "Enzyme"
+      ],
+      "responsibilities": [
+        "Developing widgets over a custom platform, simultaneously with other teams.",
+        "Leading the UI re-engineering of multiple trading applications.",
+        "Working on architecture design and implementation.",
+        "Creating a shared UI components library.",
+        "Maintaining high unit-test coverage.",
+        "Developing high-performance real-time applications with WebSocket.",
+        "Started as a Senior Developer and ended up being a mentor to juniors, interns, and backend developers for the frontend."
+      ]
+    },
+    {
+      "title": "Senior Full Stack Developer",
+      "company": "Resolvit",
+      "period": "Sep 2018 / Jun 2019",
+      "technologies_used": ["ReactJs", "Redux", "Angular 6", "CSS", "Java"],
+      "responsibilities": [
+        "Developing frontend and backend infrastructures.",
+        "Using Agile methodologies.",
+        "Establishing sustained contact with clients to gather requirements and specifications."
+      ]
+    },
+    {
+      "title": "Senior Full Stack Developer",
+      "company": "Kapsch TrafficCom AG",
+      "period": "Feb 2017 / Sep 2018",
+      "technologies_used": [
+        "AngularJs",
+        "CSS",
+        ".Net",
+        "NHibernate",
+        "Linq",
+        "SQL Server",
+        "Tibco JasperReports"
+      ],
+      "responsibilities": [
+        "Working from end to end, from database tables up to the frontend.",
+        "Backend development, database design, and API Rest services.",
+        "Frontend development, logic and styling.",
+        "Developing reports with JasperReports."
+      ]
+    },
+    {
+      "title": "Semi-Sr Frontend Developer",
+      "company": "Inclusion The Cloud Company",
+      "period": "Oct 2015 / Jan 2017",
+      "technologies_used": [
+        "Javascript",
+        "SAPUI5",
+        "CSS",
+        "C3.js",
+        "D3.js",
+        "Apache Cordova"
+      ],
+      "responsibilities": [
+        "Started on a team project for a web and mobile application as a frontend dev.",
+        "Working with scrum, on new features and improvements over the web and mobile app, mounted with Apache Cordova.",
+        "Developed an android customized keyboard in Thai.",
+        "Moved to manage several frontend development projects at the same time as a one-man team.",
+        "Developing POC applications to sell them to clients, using C3 and D3 charts.",
+        "Managing projects to be integrated with services and backend.",
+        "Keeping communication with clients to develop the POC, create new functionalities, make improvements."
+      ]
+    },
+    {
+      "title": "Semi-Sr Full Stack Developer",
+      "company": "Baufest",
+      "period": "Feb 2015 / Sep 2015",
+      "technologies_used": [".Net", "Javascript", "Bootstrap", "CSS"],
+      "responsibilities": [
+        "Develop web applications with .Net.",
+        "Backend with MVC and frontend using CSS, JavaScript and Bootstrap.",
+        "In charge of technical documentation and communication with the client."
+      ]
+    },
+    {
+      "title": "Jr Full Stack Developer",
+      "company": "IBM",
+      "period": "Mar 2014 / Feb 2015",
+      "technologies_used": [
+        ".Net",
+        "Java",
+        "Oracle",
+        "MySQL",
+        "Javascript",
+        "CSS"
+      ],
+      "responsibilities": [
+        "Develop SharePoint 2013 webparts with C#.NET.",
+        "Develop web and desktop applications with C#.NET.",
+        "Develop desktop Java applications.",
+        "Database development with Oracle and MySQL."
+      ]
+    }
+  ],
+  "education": {
+    "degree": "Bachelor's Degree in Computer Science",
+    "institution": "Buenos Aires University",
+    "years": "2004 - unfinished"
+  },
+  "languages": {
+    "Spanish": "Native",
+    "English": "Advanced",
+    "German": "Basic"
+  },
+  "references": [
+    {
+      "name": "Jonathan Roitman",
+      "email": "jonathan.roitman@distillery.com",
+      "position": "Deputy Global Head of Technology",
+      "company": "Distillery"
+    },
+    {
+      "name": "Thanasi Karachotzitis",
+      "email": "hello@reallygreatsite.com",
+      "position": "Co-Founder & CTO",
+      "company": "Just Build It / Cultos"
+    },
+    {
+      "name": "Matias A. Gonzalez",
+      "email": "matigonzalez@gmail.com",
+      "position": "Vice President Applications Developer Lead",
+      "company": "JPMorgan Chase & Co."
+    },
+    {
+      "name": "Christian Guzmán",
+      "email": "harro87@gmail.com",
+      "position": "Software Engineering Manager",
+      "company": "Resolvit"
+    }
+  ]
+}

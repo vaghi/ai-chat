@@ -2,12 +2,27 @@ import express from "express";
 import fetch from "node-fetch";
 import cors from "cors";
 import dotenv from "dotenv";
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
+import { BASE_PROMPT_DIRECTIONS } from "./consts.js";
 
 // Load environment variables
 dotenv.config({ path: ".env.local" });
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+
+// Read curriculum.json as text once at startup
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const curriculumPath = path.join(__dirname, "curriculum.json");
+let curriculumText = "";
+try {
+  curriculumText = fs.readFileSync(curriculumPath, "utf-8");
+} catch (e) {
+  console.error("Failed to load curriculum.json:", e);
+}
 
 // Middleware
 app.use(cors());
@@ -35,7 +50,17 @@ app.post("/api/chat", async (req, res) => {
         },
         body: JSON.stringify({
           model: "llama-3.1-8b-instant",
-          messages: [{ role: "user", content: prompt }],
+          messages: [
+            {
+              role: "system",
+              content: `DIRECTIONS:\n${BASE_PROMPT_DIRECTIONS}`,
+            },
+            {
+              role: "system",
+              content: `CURRICULUM (JSON):\n${curriculumText}`,
+            },
+            { role: "user", content: `USER PROMPT:\n${prompt}` },
+          ],
           temperature: 0.7,
           max_tokens: 1024,
         }),

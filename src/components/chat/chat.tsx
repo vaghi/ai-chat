@@ -1,4 +1,5 @@
 import styles from "./styles.module.scss";
+import { useEffect, useRef } from "react";
 import ArrowUpIcon from "../../assets/icons/arrow-up.svg";
 import IconButton from "../icon-button/icon-button";
 import type { ChatHistoryItem } from "../../hooks/types";
@@ -25,6 +26,12 @@ export const Chat = ({
   isLoading = false,
   error = null,
 }: ChatProps) => {
+  const bottomRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    bottomRef.current?.scrollIntoView({ behavior: "smooth", block: "end" });
+  }, [chatHistory.length, isLoading]);
+
   return (
     <div
       className={classNames(styles.chatContainer, {
@@ -43,6 +50,7 @@ export const Chat = ({
               isLoading={true}
             />
           )}
+          <div ref={bottomRef} />
         </div>
       )}
 
@@ -65,6 +73,7 @@ export const Chat = ({
             type="text"
             placeholder="Ask me anything about my CV..."
             autoComplete="off"
+            value={inputValue}
             onChange={(e) => onChangeInput(e.target.value)}
             disabled={isLoading}
           />

@@ -19,11 +19,12 @@ const ChatContainer = () => {
 
         // Clear form after successful submission
         e.currentTarget.reset();
-        setInputValue("");
       } catch (err) {
         console.error("Failed to send message:", err);
         // Error handling is done in the hook
       }
+
+      setInputValue("");
     }
   };
 

@@ -1,6 +1,8 @@
 .message {
-  padding: 4px 8px;
+  padding: 10px 16px;
   color: var(--Text-Primary);
+  font-size: 14px;
+  font-family: sans-serif;
 }
 
 .userMessage {
@@ -10,9 +12,8 @@
 .agentMessage {
   text-align: left;
   background-color: var(--Background-Message);
-  border-radius: var(--Border-Radius-XL);
+  border-radius: var(--Border-Radius-L);
   width: fit-content;
-  padding: 4px 12px;
 }
 
 .loadingMessage {
