@@ -23,7 +23,11 @@ const ChatMessage = ({
         isLoading && styles.loadingMessage
       )}
     >
-      {message}
+      {isUser ? (
+        message
+      ) : (
+        <span dangerouslySetInnerHTML={{ __html: message }} />
+      )}
       {isLoading && <span className={styles.loadingDots}>...</span>}
     </div>
   );

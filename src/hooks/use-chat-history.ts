@@ -1,6 +1,7 @@
 import { useState, useCallback } from "react";
 import { MessageSender, type ChatHistoryItem } from "./types";
 import { ChatService } from "../network";
+import { formatAiMessageHtml } from "../utils/format";
 import type { ApiError } from "../network/types";
 
 interface UseChatHistoryReturn {
@@ -49,8 +50,11 @@ export const useChatHistory = (): UseChatHistoryReturn => {
         // Send message to API
         const response = await ChatService.sendMessage(message);
 
-        // Add AI response to chat history
-        updateChatHistory(response.reply, MessageSender.AGENT);
+        // Add AI response to chat history (HTML formatted)
+        updateChatHistory(
+          formatAiMessageHtml(response.reply),
+          MessageSender.AGENT
+        );
       } catch (err) {
         const apiError: ApiError = err as ApiError;
         setError(apiError);
