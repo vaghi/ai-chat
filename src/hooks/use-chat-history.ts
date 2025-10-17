@@ -1,8 +1,31 @@
-import { useState } from "react";
-import type { ChatHistoryItem, MessageSender } from "./types";
+import { useState, useCallback } from "react";
+import { MessageSender, type ChatHistoryItem } from "./types";
+import { ChatService } from "../network";
+import type { ApiError } from "../network/types";
 
-export const useChatHistory = () => {
-  const [chatHistory, setChatHistory] = useState<ChatHistoryItem[]>([]);
+interface UseChatHistoryReturn {
+  chatHistory: ChatHistoryItem[];
+  isLoading: boolean;
+  error: ApiError | null;
+  sendMessage: (message: string) => Promise<void>;
+  clearError: () => void;
+}
+
+export const useChatHistory = (): UseChatHistoryReturn => {
+  const mockValues: ChatHistoryItem[] = [
+    { id: "1", value: "Hello there", source: MessageSender.USER },
+    {
+      id: "3",
+      value: "General Kenobi, you are a bold one! Kill him!",
+      source: MessageSender.AGENT,
+    },
+  ];
+
+  const [chatHistory, setChatHistory] = useState<ChatHistoryItem[]>([
+    ...mockValues,
+  ]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<ApiError | null>(null);
 
   const buildNewEntry = (
     value: string,
@@ -15,13 +38,55 @@ export const useChatHistory = () => {
     };
   };
 
-  const updateChatHistory = (value: string, source: MessageSender) => {
-    const newEntry = buildNewEntry(value, source);
-    setChatHistory((prev) => [...prev, newEntry]);
-  };
+  const updateChatHistory = useCallback(
+    (value: string, source: MessageSender) => {
+      const newEntry = buildNewEntry(value, source);
+      setChatHistory((prev) => [...prev, newEntry]);
+    },
+    []
+  );
+
+  const sendMessage = useCallback(
+    async (message: string): Promise<void> => {
+      if (!message.trim()) return;
+
+      setIsLoading(true);
+      setError(null);
+
+      try {
+        // Add user message to chat history
+        updateChatHistory(message, MessageSender.USER);
+
+        // Send message to API
+        const response = await ChatService.sendMessage(message);
+
+        // Add AI response to chat history
+        updateChatHistory(response.reply, MessageSender.AGENT);
+      } catch (err) {
+        const apiError: ApiError = err as ApiError;
+        setError(apiError);
+
+        // Optionally add error message to chat history
+        updateChatHistory(
+          `Sorry, I encountered an error: ${apiError.error}`,
+          MessageSender.AGENT
+        );
+      } finally {
+        setIsLoading(false);
+      }
+    },
+    [updateChatHistory]
+  );
+
+  const clearError = useCallback(() => {
+    setError(null);
+  }, []);
 
   return {
     chatHistory,
-    updateChatHistory,
+    isLoading,
+    error,
+    sendMessage,
+    clearError,
   };
 };

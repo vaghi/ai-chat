@@ -1,14 +1,27 @@
 @use "@styles/variables.scss" as variables;
 
 .chatContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   background-color: var(--Background-Primary);
-  padding: 10px 12px 10px 14px;
-  border-radius: 25px;
+  padding: 3px;
+  border-radius: var(--Border-Radius-XL);
   width: 300px;
+  transition: all 0.7s;
 }
 
 .chatInputContainer {
   display: flex;
+  padding: 8px 10px 8px 12px;
+  border-radius: var(--Border-Radius-XL);
+  background-color: var(--Background-Secondary);
+}
+
+.containerExpanded {
+  width: 100dvw;
+  max-width: 800px;
+  height: 400px;
 }
 
 .chatInput {
@@ -25,4 +38,33 @@
   &::placeholder {
     color: var(--Text-Placeholder);
   }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+.chatHistoryContainer {
+  padding: 12px;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.errorContainer {
+  padding: 8px 12px;
+  background-color: rgba(255, 0, 0, 0.1);
+  border-radius: var(--Border-Radius-SM);
+  margin: 8px 12px;
+}
+
+.errorMessage {
+  color: var(--Text-Error, #ff4444);
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+.errorDetails {
+  opacity: 0.8;
+  font-size: 0.8rem;
 }
