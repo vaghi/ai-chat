@@ -1,18 +1,11 @@
-import { API_CONFIG, type HttpMethod } from "./types";
+import { API_CONFIG } from "./types";
 
-/**
- * Generic API client with error handling and request/response interceptors
- */
 class ApiClient {
   private baseUrl: string;
 
   constructor(baseUrl: string = API_CONFIG.BASE_URL) {
     this.baseUrl = baseUrl;
   }
-
-  /**
-   * Make HTTP request with error handling
-   */
   private async request<T>(
     endpoint: string,
     options: RequestInit = {}
@@ -51,40 +44,12 @@ class ApiClient {
     }
   }
 
-  /**
-   * GET request
-   */
-  async get<T>(endpoint: string): Promise<T> {
-    return this.request<T>(endpoint, { method: "GET" });
-  }
-
-  /**
-   * POST request
-   */
   async post<T>(endpoint: string, data?: any): Promise<T> {
     return this.request<T>(endpoint, {
       method: "POST",
       body: data ? JSON.stringify(data) : undefined,
     });
   }
-
-  /**
-   * PUT request
-   */
-  async put<T>(endpoint: string, data?: any): Promise<T> {
-    return this.request<T>(endpoint, {
-      method: "PUT",
-      body: data ? JSON.stringify(data) : undefined,
-    });
-  }
-
-  /**
-   * DELETE request
-   */
-  async delete<T>(endpoint: string): Promise<T> {
-    return this.request<T>(endpoint, { method: "DELETE" });
-  }
 }
 
-// Export singleton instance
 export const apiClient = new ApiClient();

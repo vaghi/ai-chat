@@ -14,14 +14,12 @@ const ChatContainer = () => {
 
     if (message.trim()) {
       try {
-        // Send message to API (handles adding to chat history internally)
         await sendMessage(message);
 
         // Clear form after successful submission
-        e.currentTarget.reset();
+        e.currentTarget?.reset();
       } catch (err) {
         console.error("Failed to send message:", err);
-        // Error handling is done in the hook
       }
 
       setInputValue("");

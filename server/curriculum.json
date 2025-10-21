@@ -44,7 +44,7 @@
     {
       "title": "Senior Frontend Developer",
       "company": "Squire",
-      "period": "Jan 2025 / Sep 2025",
+      "period": { "from": "01/2025", "to": "09/2025" },
       "technologies_used": [
         "ReactJs",
         "React Query",
@@ -62,7 +62,7 @@
     {
       "title": "Senior Frontend Developer",
       "company": "Cultos",
-      "period": "Nov 2022 / Dec 2024",
+      "period": { "from": "11/2022", "to": "12/2024" },
       "technologies_used": [
         "ReactJs",
         "Typescript",
@@ -88,7 +88,7 @@
     {
       "title": "Senior Frontend Developer / CTL",
       "company": "Distillery",
-      "period": "Feb 2021 / Oct 2022",
+      "period": { "from": "02/2021", "to": "10/2022" },
       "technologies_used": [
         "ReactJs",
         "Redux",
@@ -112,7 +112,7 @@
     {
       "title": "Senior Fronnd Developer / Tech Lead",
       "company": "J.P. Morgan & Chase",
-      "period": "Jul 2018 / Feb 2021",
+      "period": { "from": "07/2018", "to": "02/2021" },
       "technologies_used": [
         "ReactJs",
         "Redux",
@@ -135,7 +135,7 @@
     {
       "title": "Senior Full Stack Developer",
       "company": "Resolvit",
-      "period": "Sep 2018 / Jun 2019",
+      "period": { "from": "10/2018", "to": "06/2019" },
       "technologies_used": ["ReactJs", "Redux", "Angular 6", "CSS", "Java"],
       "responsibilities": [
         "Developing frontend and backend infrastructures.",
@@ -146,7 +146,7 @@
     {
       "title": "Senior Full Stack Developer",
       "company": "Kapsch TrafficCom AG",
-      "period": "Feb 2017 / Sep 2018",
+      "period": { "from": "02/2017", "to": "09/2018" },
       "technologies_used": [
         "AngularJs",
         "CSS",
@@ -166,7 +166,7 @@
     {
       "title": "Semi-Sr Frontend Developer",
       "company": "Inclusion The Cloud Company",
-      "period": "Oct 2015 / Jan 2017",
+      "period": { "from": "10/2015", "to": "01/2017" },
       "technologies_used": [
         "Javascript",
         "SAPUI5",
@@ -188,7 +188,7 @@
     {
       "title": "Semi-Sr Full Stack Developer",
       "company": "Baufest",
-      "period": "Feb 2015 / Sep 2015",
+      "period": { "from": "02/2015", "to": "09/2015" },
       "technologies_used": [".Net", "Javascript", "Bootstrap", "CSS"],
       "responsibilities": [
         "Develop web applications with .Net.",
@@ -199,7 +199,7 @@
     {
       "title": "Jr Full Stack Developer",
       "company": "IBM",
-      "period": "Mar 2014 / Feb 2015",
+      "period": { "from": "03/2014", "to": "02/2015" },
       "technologies_used": [
         ".Net",
         "Java",
