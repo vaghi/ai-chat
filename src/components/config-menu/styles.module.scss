@@ -1,0 +1,13 @@
+@use "@styles/variables.scss" as variables;
+
+.configMenuContainer {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 2;
+
+  img {
+    width: 24px;
+    height: 24px;
+  }
+}

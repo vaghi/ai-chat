@@ -32,30 +32,6 @@ An AI-powered chat application built with React, TypeScript, and Vite on the fro
 
 ---
 
-## Project Structure
-
-```text
-ai-chat/
-├─ server/
-│  ├─ index.js              # Express server (ESM)
-│  ├─ consts.js             # Base prompt directions
-│  └─ curriculum.json       # Context provided to the LLM
-├─ src/
-│  ├─ components/
-│  │  ├─ chat/
-│  │  └─ chat-message/
-│  ├─ hooks/
-│  │  └─ use-chat-history.ts
-│  └─ network/              # API client and services
-│     ├─ api.ts
-│     ├─ chat.service.ts
-│     └─ types.ts
-├─ package.json
-└─ README.md
-```
-
----
-
 ## Setup
 
 ### 1) Install dependencies
@@ -81,6 +57,8 @@ npm start
 # or
 npm run dev:full
 ```
+
+Notes: Vite requires Node.js version 20.19+ or 22.12+ to run
 
 Run only backend:
 
@@ -128,8 +106,6 @@ Notes:
   - `system`: Curriculum JSON as text
   - `user`: Your prompt
 - Model used: `llama-3.1-8b-instant`
-
-Health check (optional): `GET /health`
 
 ---
 

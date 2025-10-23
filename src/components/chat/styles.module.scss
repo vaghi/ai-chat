@@ -22,6 +22,11 @@
   width: 100dvw;
   max-width: 800px;
   height: 400px;
+
+  @media (max-width: variables.$breakpoint-mobile) {
+    width: auto;
+    flex: 1;
+  }
 }
 
 .chatInput {

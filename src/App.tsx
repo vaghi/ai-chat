@@ -1,13 +1,14 @@
-import "./App.css";
+import styles from "./styles.module.scss";
 import ChatContainer from "./components/chat/chat.container";
+import ConfigMenuContainer from "./components/config-menu/config-menu.container";
 
 function App() {
   return (
-    <>
-      <div></div>
+    <div className={styles.appContainer}>
       <h1>AI Chat CV</h1>
       <ChatContainer />
-    </>
+      <ConfigMenuContainer />
+    </div>
   );
 }
 

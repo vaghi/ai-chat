@@ -35,17 +35,15 @@ const ChatContainer = () => {
   };
 
   return (
-    <div>
-      <Chat
-        onSubmit={handleSubmit}
-        onChangeInput={handleOnChangeInput}
-        inputValue={inputValue}
-        chatHistory={chatHistory}
-        showChatHistory={!!chatHistory.length}
-        isLoading={isLoading}
-        error={error}
-      />
-    </div>
+    <Chat
+      onSubmit={handleSubmit}
+      onChangeInput={handleOnChangeInput}
+      inputValue={inputValue}
+      chatHistory={chatHistory}
+      showChatHistory={!!chatHistory.length}
+      isLoading={isLoading}
+      error={error}
+    />
   );
 };
 

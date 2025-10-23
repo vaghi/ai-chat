@@ -2,11 +2,9 @@
   align-items: center;
   justify-content: center;
   display: flex;
-  background: white;
   border-radius: 100%;
   min-width: 36px;
   height: 36px;
-  border: 1px solid var(--Background-Disabled);
   cursor: pointer;
   transition: all 0.3s;
 
@@ -14,4 +12,14 @@
     opacity: 0.5;
     cursor: not-allowed;
   }
+}
+
+.color-primary {
+  background: var(--Background-Button-Primary);
+  border: 1px solid var(--Border-Button-Primary);
+}
+
+.color-secondary {
+  background: var(--Background-Button-Secondary);
+  border: 1px solid var(--Border-Button-Secondary);
 }
