@@ -159,6 +159,15 @@ This repository is part of a personal portfolio. Feel free to explore and refere
 
 ---
 
+## TODO
+
+- Add tests
+- Switch dark/light mode
+- Persist on local storage with reset button
+- Add en/es lang with i18n
+
+---
+
 ## Author
 
 **Agustín Vaghi** — Senior Full Stack Developer
