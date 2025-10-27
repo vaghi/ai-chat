@@ -3,8 +3,6 @@
   justify-content: center;
   display: flex;
   border-radius: 100%;
-  min-width: 36px;
-  height: 36px;
   cursor: pointer;
   transition: all 0.3s;
 
@@ -22,4 +20,26 @@
 .color-secondary {
   background: var(--Background-Button-Secondary);
   border: 1px solid var(--Border-Button-Secondary);
+}
+
+.size-small {
+  min-width: 28px;
+  height: 28px;
+  width: 28px;
+
+  img {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.size-medium {
+  min-width: 36px;
+  height: 36px;
+  width: 36px;
+
+  img {
+    width: 24px;
+    height: 24px;
+  }
 }

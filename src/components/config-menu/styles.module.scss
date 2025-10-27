@@ -1,13 +1,37 @@
-@use "@styles/variables.scss" as variables;
+@use "@styles/variables.module.scss" as variables;
 
 .configMenuContainer {
   position: fixed;
+  justify-content: end;
+  display: flex;
+  gap: 10px;
+  align-items: center;
   top: 20px;
   right: 20px;
   z-index: 2;
+  transition: all 1s;
+  background: var(--Border-Button-Secondary);
+  border-radius: 24px;
+  width: 36px;
+}
 
-  img {
-    width: 24px;
-    height: 24px;
-  }
+.menuOpen {
+  width: 80px;
+}
+
+.content {
+  max-height: 0;
+
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out,
+    max-height 0.3s ease-in-out;
+
+  opacity: 0;
+  visibility: hidden;
+  overflow: hidden;
+}
+
+.showContent {
+  max-height: 500px;
+  opacity: 1;
+  visibility: visible;
 }

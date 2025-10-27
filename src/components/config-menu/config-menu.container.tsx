@@ -1,13 +1,29 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ConfigMenu } from "./config-menu";
 
 const ConfigMenuContainer = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showContent, setShowContent] = useState(false);
 
-  //TODO: Remove with functionality is developed and working
-  return null;
+  useEffect(() => {}, [isMenuOpen]);
 
-  return <ConfigMenu isOpen={isMenuOpen} setIsOpen={setIsMenuOpen} />;
+  const handleMenuChange = (open: boolean) => {
+    if (open) {
+      setIsMenuOpen(open);
+      setTimeout(() => setShowContent(true), 600);
+    } else {
+      setShowContent(false);
+      setTimeout(() => setIsMenuOpen(false), 500);
+    }
+  };
+
+  return (
+    <ConfigMenu
+      isOpen={isMenuOpen}
+      onChangeOpenMenu={handleMenuChange}
+      showContent={showContent}
+    />
+  );
 };
 
 export default ConfigMenuContainer;

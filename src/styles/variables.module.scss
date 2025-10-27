@@ -1,0 +1,49 @@
+$breakpoint-mobile: 640px;
+
+:root {
+  --Border-Radius-L: 16px;
+  --Border-Radius-XL: 25px;
+
+  --track-width: 56px;
+  --track-height: 28px;
+  --knob-size: 24px;
+  --knob-translation: 28px;
+  --color-on: #2563eb;
+  --color-track-off: #d1d5db;
+  --color-knob: white;
+}
+
+:root,
+.dark {
+  --Background-Page: #242424;
+  --Background-Primary: #2c2c2c;
+  --Background-Secondary: #393838;
+  --Background-Disabled: #aaa5a5;
+  --Background-Message: #4c4b4b;
+
+  --Background-Button-Primary: #ffffff;
+  --Background-Button-Secondary: #75799b;
+  --Border-Button-Primary: #c4c3c3d8;
+  --Border-Button-Secondary: #5b6d7cd8;
+
+  --Header-Primary: #ffffff;
+  --Text-Primary: #f3f4f6;
+  --Text-Placeholder: #888888;
+}
+
+.light {
+  --Background-Page: #ffffffe8;
+  --Background-Primary: #f9fafb;
+  --Background-Secondary: #f2f0f0a9;
+  --Background-Disabled: #e0e0e0;
+  --Background-Message: #d4e6ff;
+
+  --Background-Button-Primary: #c0c0c0;
+  --Background-Button-Secondary: #e5e7eb;
+  --Border-Button-Primary: #4b5563d8;
+  --Border-Button-Secondary: #9ca3afd8;
+
+  --Header-Primary: #252525;
+  --Text-Primary: #374151;
+  --Text-Placeholder: #a0a0a0;
+}

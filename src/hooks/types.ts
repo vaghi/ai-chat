@@ -8,3 +8,10 @@ export interface ChatHistoryItem {
   value: string;
   source: MessageSender;
 }
+
+export interface ThemeState {
+  theme: string;
+  toggleTheme: () => void;
+  // Initialize function to pull state from persistence before mount
+  initializeTheme: (initialTheme: string) => void;
+}
