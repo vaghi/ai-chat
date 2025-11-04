@@ -1,8 +1,8 @@
 import IconButton from "../icon-button/icon-button";
-import ConfigIcon from "../../assets/icons/config.svg";
+import ConfigIcon from "@assets/icons/config.svg";
 import styles from "./styles.module.scss";
 import classNames from "classnames";
-import ThemeToggle from "../theme-toggle/theme-toggle";
+import ThemeToggle from "../theme-toggle";
 
 interface ConfigMenuProps {
   isOpen: boolean;

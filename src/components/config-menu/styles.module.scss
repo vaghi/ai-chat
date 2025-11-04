@@ -9,7 +9,7 @@
   top: 20px;
   right: 20px;
   z-index: 2;
-  transition: all 1s;
+  transition: all 0.6s;
   background: var(--Border-Button-Secondary);
   border-radius: 24px;
   width: 36px;
@@ -20,8 +20,6 @@
 }
 
 .content {
-  max-height: 0;
-
   transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out,
     max-height 0.3s ease-in-out;
 
@@ -31,7 +29,6 @@
 }
 
 .showContent {
-  max-height: 500px;
   opacity: 1;
   visibility: visible;
 }

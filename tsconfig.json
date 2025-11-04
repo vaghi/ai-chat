@@ -4,11 +4,12 @@
     "allowJs": true,
     "types": ["jest", "@testing-library/jest-dom"],
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "lib": ["DOM", "DOM.Iterable", "ES2020"]
   },
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ]
+  "paths": {
+    "@styles/*": ["./src/styles/*"],
+    "@assets/*": ["./src/assets/*"]
+  },
+  "include": ["src/**/*", "global.d.ts"]
 }

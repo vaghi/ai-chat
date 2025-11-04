@@ -1,6 +1,6 @@
 import styles from "./styles.module.scss";
 import { useEffect, useRef } from "react";
-import ArrowUpIcon from "../../assets/icons/arrow-up.svg";
+import ArrowUpIcon from "@assets/icons/arrow-up.svg";
 import IconButton from "../icon-button/icon-button";
 import type { ChatHistoryItem } from "../../hooks/types";
 import type { ApiError } from "../../network/types";
@@ -16,7 +16,6 @@ interface ChatProps {
   isLoading?: boolean;
   error?: ApiError | null;
 }
-
 export const Chat = ({
   onSubmit,
   onChangeInput,

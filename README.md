@@ -161,10 +161,11 @@ This repository is part of a personal portfolio. Feel free to explore and refere
 
 ## TODO
 
+- Send chat history to backend and LLM
 - Add tests
-- Switch dark/light mode
 - Persist on local storage with reset button
 - Add en/es lang with i18n
+- Style chat scrollbar
 
 ---
 
