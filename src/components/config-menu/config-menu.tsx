@@ -17,12 +17,13 @@ export const ConfigMenu = ({
 }: ConfigMenuProps) => {
   return (
     <div
-      id="config-menu-container"
+      data-testid="config-menu-main" // Added data-testid to the main container
       className={classNames(styles.configMenuContainer, {
         [styles.menuOpen]: isOpen,
       })}
     >
       <div
+        data-testid="config-menu-content" // Added data-testid to the content area
         className={classNames(styles.content, {
           [styles.showContent]: showContent,
         })}
@@ -30,6 +31,7 @@ export const ConfigMenu = ({
         <ThemeToggle />
       </div>
       <IconButton
+        data-testid="config-menu-toggle-button" // Added data-testid to the button
         icon={ConfigIcon}
         color="secondary"
         onClick={() => onChangeOpenMenu(!isOpen)}
