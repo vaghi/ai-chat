@@ -4,8 +4,7 @@ import ConfigMenuContainer from "./components/config-menu/config-menu.container"
 import { useThemeInitializer } from "./hooks/use-theme-initializer";
 
 function App() {
-  const { theme } = useThemeInitializer();
-  console.log("theme:", theme);
+  useThemeInitializer();
 
   return (
     <div className={styles.appContainer}>

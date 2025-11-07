@@ -2,7 +2,7 @@ import styles from "./styles.module.scss";
 import { useEffect, useRef } from "react";
 import ArrowUpIcon from "@assets/icons/arrow-up.svg";
 import IconButton from "../icon-button/icon-button";
-import type { ChatHistoryItem } from "../../hooks/types";
+import type { ChatHistoryItem } from "../../types/types";
 import type { ApiError } from "../../network/types";
 import classNames from "classnames";
 import ChatMessage from "../chat-message/chat-message";

@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { Chat } from "./chat";
-import { useChatHistory } from "../../hooks/use-chat-history";
+import { useChatStore } from "../../stores/use-chat-store";
 
 const ChatContainer = () => {
   const [inputValue, setInputValue] = useState("");
   const { chatHistory, isLoading, error, sendMessage, clearError } =
-    useChatHistory();
+    useChatStore();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -16,7 +16,6 @@ const ChatContainer = () => {
       try {
         await sendMessage(message);
 
-        // Clear form after successful submission
         e.currentTarget?.reset();
       } catch (err) {
         console.error("Failed to send message:", err);
@@ -28,7 +27,6 @@ const ChatContainer = () => {
 
   const handleOnChangeInput = (value: string) => {
     setInputValue(value);
-    // Clear any existing errors when user starts typing
     if (error) {
       clearError();
     }

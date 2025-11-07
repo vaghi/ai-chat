@@ -1,7 +1,7 @@
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 import ChatMessage from "../chat-message";
-import { MessageSender } from "../../hooks/types";
+import { MessageSender } from "../../types/types";
 
 const styles = {
   message: "message",

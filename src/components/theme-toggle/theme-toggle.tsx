@@ -7,7 +7,7 @@ import IconButton from "../icon-button";
 const ThemeToggle: FC = () => {
   const { theme, toggleTheme } = useThemeStore();
 
-  const Icon = theme === "dark" ? Moon : Sun;
+  const Icon = theme.includes("dark") ? Moon : Sun;
 
   return <IconButton icon={Icon} onClick={toggleTheme} size={"small"} />;
 };

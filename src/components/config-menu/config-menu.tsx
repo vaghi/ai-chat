@@ -3,6 +3,7 @@ import ConfigIcon from "@assets/icons/config.svg";
 import styles from "./styles.module.scss";
 import classNames from "classnames";
 import ThemeToggle from "../theme-toggle";
+import ClearChatHistoryButton from "../clear-chat-history-button/clear-chat-history-button.container";
 
 interface ConfigMenuProps {
   isOpen: boolean;
@@ -29,6 +30,7 @@ export const ConfigMenu = ({
         })}
       >
         <ThemeToggle />
+        <ClearChatHistoryButton />
       </div>
       <IconButton
         data-testid="config-menu-toggle-button" // Added data-testid to the button

@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import { MessageSender } from "../../hooks/types";
+import { MessageSender } from "../../types/types";
 import styles from "./styles.module.scss";
 
 interface ChatMessageProps {

@@ -9,6 +9,7 @@
   border-radius: var(--Border-Radius-XL);
   width: 300px;
   transition: all 0.7s;
+  height: 52px;
 }
 
 .chatInputContainer {
@@ -19,7 +20,7 @@
 }
 
 .containerExpanded {
-  width: 100dvw;
+  width: 800px;
   max-width: 800px;
   height: 400px;
 

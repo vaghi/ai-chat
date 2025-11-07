@@ -13,13 +13,20 @@
   background: var(--Border-Button-Secondary);
   border-radius: 24px;
   width: 36px;
+
+  @media (max-width: variables.$breakpoint-mobile) {
+    top: 10px;
+    right: 10px;
+  }
 }
 
 .menuOpen {
-  width: 80px;
+  width: 120px;
 }
 
 .content {
+  display: flex;
+  gap: 8px;
   transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out,
     max-height 0.3s ease-in-out;
 

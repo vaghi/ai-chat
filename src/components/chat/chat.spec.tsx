@@ -2,7 +2,7 @@ import "@testing-library/jest-dom";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { Chat } from "./chat";
 
-import { MessageSender } from "../../hooks/types";
+import { MessageSender } from "../../types/types";
 
 const mockScrollIntoView = jest.fn();
 
