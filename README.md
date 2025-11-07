@@ -18,6 +18,7 @@ An AI-powered chat application built with React, TypeScript, and Vite on the fro
 - Vite 7
 - SCSS Modules
 - Component-driven structure with hooks
+- State management with Zustand
 
 ### Backend
 
@@ -42,7 +43,7 @@ npm install
 
 ### 2) Configure environment
 
-Create `.env.local` in the project root with your Groq API key:
+Rename `.env.example` to `.env` in the project root with your Groq API key.
 
 ```bash
 GROQ_API_KEY=your_actual_groq_api_key_here
@@ -109,25 +110,6 @@ Notes:
 
 ---
 
-## Frontend Integration
-
-The chat UI uses a small network layer and a chat hook to manage state.
-
-Key pieces:
-
-- `src/network/api.ts`: Minimal API client with error handling
-- `src/network/chat.service.ts`: Chat-specific endpoint wrapper
-- `src/hooks/use-chat-history.ts`: Manages chat history, loading and error state, and calls the service
-
-Example usage (hook):
-
-```ts
-const { chatHistory, isLoading, error, sendMessage } = useChatHistory();
-await sendMessage("Tell me about my experience with React Native");
-```
-
----
-
 ## Scripts
 
 ```json
@@ -162,8 +144,6 @@ This repository is part of a personal portfolio. Feel free to explore and refere
 ## TODO
 
 - Send chat history to backend and LLM
-- Add tests
-- Persist on local storage with reset button
 - Add en/es lang with i18n
 - Style chat scrollbar
 

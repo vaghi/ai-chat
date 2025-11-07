@@ -8,7 +8,7 @@ import { fileURLToPath } from "url";
 import { BASE_PROMPT_DIRECTIONS } from "./consts.js";
 
 // Load environment variables
-dotenv.config({ path: ".env.local" });
+dotenv.config({ path: ".env" });
 
 const app = express();
 const PORT = process.env.PORT || 3001;
