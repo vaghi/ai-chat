@@ -145,7 +145,6 @@ This repository is part of a personal portfolio. Feel free to explore and refere
 
 - Send chat history to backend and LLM
 - Add en/es lang with i18n
-- Style chat scrollbar
 
 ---
 

@@ -55,9 +55,30 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-  padding: 12px;
+  padding: 6px;
+  margin: 6px;
   flex: 1;
   overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: var(--Background-Primary);
+    border-radius: 0 var(--Border-Radius-XL) var(--Border-Radius-XL) 0;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--Text-Placeholder);
+    border-radius: 10px;
+    border: 2px solid var(--Background-Primary);
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: var(--Text-Primary);
+  }
 }
 
 .errorContainer {

@@ -15,6 +15,7 @@ interface ChatProps {
   showChatHistory: boolean;
   isLoading?: boolean;
   error?: ApiError | null;
+  inputRef: React.RefObject<HTMLInputElement>;
 }
 export const Chat = ({
   onSubmit,
@@ -24,6 +25,7 @@ export const Chat = ({
   showChatHistory,
   isLoading = false,
   error = null,
+  inputRef,
 }: ChatProps) => {
   const bottomRef = useRef<HTMLDivElement | null>(null);
 
@@ -67,6 +69,7 @@ export const Chat = ({
       <form onSubmit={onSubmit}>
         <div className={styles.chatInputContainer}>
           <input
+            ref={inputRef}
             className={styles.chatInput}
             name="message"
             type="text"

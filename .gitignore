@@ -13,6 +13,7 @@ build/
 
 # Environment variables
 .env
+.env.exmaple
 
 # IDE and Editor files
 .vscode/

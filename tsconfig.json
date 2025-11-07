@@ -5,11 +5,11 @@
     "types": ["jest", "@testing-library/jest-dom"],
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "lib": ["DOM", "DOM.Iterable", "ES2020"]
-  },
-  "paths": {
-    "@styles/*": ["./src/styles/*"],
-    "@assets/*": ["./src/assets/*"]
+    "lib": ["DOM", "DOM.Iterable", "ES2020"],
+    "paths": {
+      "@styles/*": ["./src/styles/*"],
+      "@assets/*": ["./src/assets/*"]
+    }
   },
   "include": ["src/**/*", "global.d.ts"]
 }

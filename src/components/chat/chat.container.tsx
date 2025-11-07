@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Chat } from "./chat";
 import { useChatStore } from "../../stores/use-chat-store";
 
 const ChatContainer = () => {
   const [inputValue, setInputValue] = useState("");
+  const inputRef = useRef<HTMLInputElement>(null);
+
   const { chatHistory, isLoading, error, sendMessage, clearError } =
     useChatStore();
 
@@ -22,6 +24,10 @@ const ChatContainer = () => {
       }
 
       setInputValue("");
+
+      setTimeout(() => {
+        inputRef.current?.focus();
+      }, 0);
     }
   };
 
@@ -34,6 +40,7 @@ const ChatContainer = () => {
 
   return (
     <Chat
+      inputRef={inputRef}
       onSubmit={handleSubmit}
       onChangeInput={handleOnChangeInput}
       inputValue={inputValue}
