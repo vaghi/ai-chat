@@ -8,6 +8,12 @@ An AI-powered chat application built with React, TypeScript, and Vite on the fro
 - Demonstrate full-stack integration and API design
 - Use a real LLM provider (Groq) with a clean prompt engineering approach
 
+### Features
+
+- **Theme Customization**: Toggle between Light and Dark modes via the UI button or by asking the chat (e.g., "switch to dark mode").
+- **Session Management**: Clear chat history via the UI button or by asking the chat (e.g., "clear chat").
+- **Cache Control**: Clear local storage/cache by asking the chat (e.g., "clear cache").
+
 ---
 
 ## Tech Stack
@@ -115,7 +121,7 @@ Notes:
 ```json
 {
   "dev": "vite", // frontend only
-  "dev:backend": "node server/index.js", // backend only
+  "dev:backend": "nodemon server/index.js", // backend only
   "dev:full": "concurrently --kill-others --prefix \"[{name}]\" --names \"backend,frontend\" \"npm run dev:backend\" \"npm run dev\"",
   "start": "npm run dev:full",
   "build": "tsc -b && vite build",

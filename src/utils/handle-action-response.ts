@@ -33,14 +33,18 @@ export function handleActionResponse(
       }
 
       case SubActionType.CLEAR_CHAT: {
-        actions.clearChat();
+        setTimeout(() => {
+          actions.clearChat();
+        }, 3000);
         break;
       }
 
       case SubActionType.CLEAR_CACHE: {
         clearPersistedState({ hardReload: false });
         // Also clear in-memory chat so UI reflects immediately
-        actions.clearChat();
+        setTimeout(() => {
+          actions.clearChat();
+        }, 3000);
         break;
       }
 

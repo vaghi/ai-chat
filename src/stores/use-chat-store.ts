@@ -33,7 +33,7 @@ const buildNewEntry = (
 
 export const useChatStore = create<ChatStore>()(
   persist(
-    (set) => ({
+    (set, get) => ({
       chatHistory: [],
       isLoading: false,
       error: null,
