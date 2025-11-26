@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { useThemeStore } from "../../hooks/use-theme-store";
+import { useThemeStore } from "../../stores/use-theme-store";
 import Sun from "@assets/icons/sun.svg";
 import Moon from "@assets/icons/moon.svg";
 import IconButton from "../icon-button";

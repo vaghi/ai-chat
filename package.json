@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "dev:backend": "node server/index.js",
+    "dev:backend": "nodemon server/index.js",
     "dev:full": "concurrently --kill-others --prefix \"[{name}]\" --names \"backend,frontend\" \"npm run dev:backend\" \"npm run dev\"",
     "build": "tsc -b && vite build",
     "lint": "eslint .",

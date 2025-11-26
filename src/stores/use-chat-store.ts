@@ -1,8 +1,11 @@
+// src/stores/use-chat-store.ts
 import { create } from "zustand";
-import { persist } from "zustand/middleware"; // ⬅️ Use middleware for Local Storage
+import { persist } from "zustand/middleware";
 import { ApiError, ChatService } from "../network";
 import { formatAiMessageHtml } from "../utils/format";
 import { ChatHistoryItem, MessageSender } from "../types/types";
+import { handleActionResponse } from "../utils/handle-action-response";
+import { useThemeStore } from "./use-theme-store";
 
 interface ChatState {
   chatHistory: ChatHistoryItem[];
@@ -14,13 +17,11 @@ interface ChatActions {
   sendMessage: (message: string) => Promise<void>;
   clearError: () => void;
   clearChatHistory: () => void;
-  setHistory: (history: ChatHistoryItem[]) => void; // Helper for persist/testing
+  setHistory: (history: ChatHistoryItem[]) => void;
 }
 
-// Combine state and actions into one type
 type ChatStore = ChatState & ChatActions;
 
-// Helper function from your original hook (must be defined here or imported)
 const buildNewEntry = (
   value: string,
   source: MessageSender
@@ -39,45 +40,46 @@ export const useChatStore = create<ChatStore>()(
 
       clearError: () => set({ error: null }),
       setHistory: (history) => set({ chatHistory: history }),
-
-      clearChatHistory: () => {
-        set({ chatHistory: [], error: null });
-      },
-
-      sendMessage: async (message: string): Promise<void> => {
-        if (!message.trim()) return;
-
+      sendMessage: async (prompt: string) => {
         set({ isLoading: true, error: null });
 
-        const updateHistory = (value: string, source: MessageSender) => {
-          const newEntry = buildNewEntry(value, source);
-          set((state) => ({ chatHistory: [...state.chatHistory, newEntry] }));
-        };
+        // Optimistic update
+        const userMsg = buildNewEntry(prompt, MessageSender.USER);
+        set((state) => ({
+          chatHistory: [...state.chatHistory, userMsg],
+        }));
 
         try {
-          updateHistory(message, MessageSender.USER);
+          const resp = await ChatService.sendMessage(prompt);
 
-          const response = await ChatService.sendMessage(message);
+          // Handle side-effects (theme, clear chat, etc.)
+          // We pass callbacks to avoid circular dependency in handleActionResponse
+          const { uiMessage } = handleActionResponse(resp, {
+            toggleTheme: () => useThemeStore.getState().toggleTheme(),
+            clearChat: () => get().clearChatHistory(),
+          });
 
-          updateHistory(
-            formatAiMessageHtml(response.reply),
-            MessageSender.AGENT
-          );
-        } catch (err) {
-          const apiError: ApiError = err as ApiError;
-          set({ error: apiError });
-
-          updateHistory(
-            `Sorry, I encountered an error: ${apiError.error}`,
-            MessageSender.AGENT
-          );
+          if (uiMessage) {
+            const botMsg = buildNewEntry(
+              formatAiMessageHtml(uiMessage),
+              MessageSender.AGENT
+            );
+            set((state) => ({
+              chatHistory: [...state.chatHistory, botMsg],
+            }));
+          }
+        } catch (err: any) {
+          set({ error: err.message || "Failed to send message" });
         } finally {
           set({ isLoading: false });
         }
       },
+
+      clearChatHistory: () => set({ chatHistory: [] }),
     }),
     {
       name: "chat-storage",
+      partialize: (state) => ({ chatHistory: state.chatHistory }),
     }
   )
 );

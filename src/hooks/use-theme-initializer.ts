@@ -1,6 +1,6 @@
 import { useEffect } from "react";
-import { useThemeStore } from "./use-theme-store";
-import styles from "../styles/variables.module.scss";
+import { useThemeStore } from "../stores/use-theme-store";
+import styles from "@styles/variables.module.scss";
 
 export const useThemeInitializer = () => {
   const { theme, initializeTheme } = useThemeStore();
@@ -25,7 +25,6 @@ export const useThemeInitializer = () => {
     const root = document.documentElement;
     root.classList.remove(styles.light, styles.dark);
     const themeClassname = theme === styles.light ? styles.light : styles.dark;
-
     root.classList.add(themeClassname);
   }, [theme]);
 

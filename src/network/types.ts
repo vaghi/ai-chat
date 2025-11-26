@@ -1,33 +1,32 @@
-// API Request/Response Types
+// src/network/types.ts
+// API types + endpoints. Extended to the new action/subaction contract.
+
+
+
+export const API_CONFIG = {
+  BASE_URL: import.meta.env.VITE_API_URL || "http://localhost:3001", // ✅ works in browser
+  ENDPOINTS: {
+    CHAT: "/api/chat",
+  },
+};
+
 export interface ChatRequest {
   prompt: string;
 }
 
+// The backend now returns a structured response with meta.
 export interface ChatResponse {
   reply: string;
-  timestamp: string;
+  meta: {
+    intent: string;
+    subAction?: string | null;
+    confidence: number;
+    used_two_stage: boolean;
+    timestamp: string;
+  };
 }
 
 export interface ApiError {
   error: string;
   details?: string;
-}
-
-// API Configuration
-export const API_CONFIG = {
-  BASE_URL: "http://localhost:3001",
-  ENDPOINTS: {
-    CHAT: "/api/chat",
-    HEALTH: "/health",
-  },
-} as const;
-
-// HTTP Methods
-export type HttpMethod = "GET" | "POST" | "PUT" | "DELETE" | "PATCH";
-
-// API Response wrapper
-export interface ApiResponse<T> {
-  data?: T;
-  error?: ApiError;
-  isLoading: boolean;
 }

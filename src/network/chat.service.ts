@@ -1,3 +1,4 @@
+// src/network/ChatService.ts
 import { apiClient } from "./api";
 import { API_CONFIG } from "./types";
 import type { ChatRequest, ChatResponse, ApiError } from "./types";
