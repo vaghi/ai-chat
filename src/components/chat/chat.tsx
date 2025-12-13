@@ -6,6 +6,7 @@ import type { ChatHistoryItem } from "../../types/types";
 import type { ApiError } from "../../network/types";
 import classNames from "classnames";
 import ChatMessage from "../chat-message/chat-message";
+import { useStyleStore } from "../../stores/use-style-store";
 
 interface ChatProps {
   onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
@@ -28,6 +29,7 @@ export const Chat = ({
   inputRef,
 }: ChatProps) => {
   const bottomRef = useRef<HTMLDivElement | null>(null);
+  const componentStyles = useStyleStore((state) => state.componentStyles);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth", block: "end" });
@@ -38,8 +40,9 @@ export const Chat = ({
       className={classNames(styles.chatContainer, {
         [styles.containerExpanded]: showChatHistory,
       })}
+      style={componentStyles["chat"]}
     >
-      {showChatHistory && (
+      {showChatHistory ? (
         <div className={styles.chatHistoryContainer}>
           {chatHistory.map(({ value, id, source }) => (
             <ChatMessage key={id} message={value} source={source} />
@@ -52,6 +55,16 @@ export const Chat = ({
             />
           )}
           <div ref={bottomRef} />
+        </div>
+      ) : (
+        <div className={styles.featureDescription}>
+          <p>
+            Hi! I can help you with: <br />
+            - <strong>Answering questions</strong> about my CV. <br />
+            - <strong>Changing styles</strong> (e.g., "Make background blue"). <br />
+            - <strong>Toggling theme</strong> (light/dark). <br />
+            - <strong>Resetting styles</strong> ("Reset styles"). <br />
+          </p>
         </div>
       )}
 
@@ -78,6 +91,7 @@ export const Chat = ({
             value={inputValue}
             onChange={(e) => onChangeInput(e.target.value)}
             disabled={isLoading}
+            style={componentStyles["input"]}
           />
           <IconButton
             icon={ArrowUpIcon}

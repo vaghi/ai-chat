@@ -5,6 +5,7 @@
 import { SubActionType } from "../types/action-types";
 import { ChatResponse } from "../network/types";
 import { clearPersistedState } from "./cache";
+import { useStyleStore } from "../stores/use-style-store";
 
 // Return value used by the caller to optionally append a message to chat.
 export interface HandleResult {
@@ -40,11 +41,26 @@ export function handleActionResponse(
       }
 
       case SubActionType.CLEAR_CACHE: {
-        clearPersistedState({ hardReload: false });
         // Also clear in-memory chat so UI reflects immediately
         setTimeout(() => {
+          clearPersistedState({ hardReload: false });
           actions.clearChat();
         }, 3000);
+        break;
+      }
+
+      case SubActionType.STYLE_CHANGE: {
+        if (resp.meta.payload) {
+          const { component, styles } = resp.meta.payload;
+          if (component && styles) {
+            useStyleStore.getState().updateStyle(component, styles);
+          }
+        }
+        break;
+      }
+
+      case SubActionType.STYLE_RESET: {
+        useStyleStore.getState().resetStyles();
         break;
       }
 

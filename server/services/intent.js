@@ -16,6 +16,8 @@ If UI_COMMAND, also identify the subAction:
 - "theme.toggle" (for light/dark mode switches)
 - "cache.clear" (for clearing cache/storage)
 - "chat.clear" (for resetting/clearing chat history)
+- "style.change" (for adding or modifying styles of UI components like background, chat, input, keys, etc.)
+- "style.reset" (reset all styles to default)
 - null (if unclear)
 
 Return a compact JSON: {"intent":"...", "subAction": "..." | null, "confidence":0-1}.

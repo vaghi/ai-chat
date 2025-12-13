@@ -20,6 +20,7 @@ export interface ChatResponse {
   meta: {
     intent: string;
     subAction?: string | null;
+    payload?: { component: string; styles: Record<string, string | number> };
     confidence: number;
     used_two_stage: boolean;
     timestamp: string;

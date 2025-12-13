@@ -2,6 +2,7 @@ import { Router } from "express";
 import { createChat } from "../services/groq-client.js";
 import { classifyIntent } from "../services/intent.js";
 import { getCvSummary } from "../services/context.js";
+import { generateStyleUpdate } from "../services/style-generator.js";
 import { BASE_PROMPT_DIRECTIONS } from "../consts.js";
 
 const router = Router();
@@ -27,10 +28,19 @@ router.post("/chat", async (req, res) => {
     let reply;
     let usedTwoStage = false;
 
+    let payload = null;
+
     if (intent === "UI_COMMAND") {
-      // Example: let the frontend handle side-effects based on action payload.
-      // We return a friendly text message, while the frontend acts on meta.subAction.
-      reply = "Sure, I can help with that.";
+      if (subAction === "style.change") {
+        payload = await generateStyleUpdate(prompt);
+        reply = `Updated styles for ${payload.component}.`;
+      } else if (subAction === "style.reset") {
+        reply = "Restoring all styles to default.";
+      } else {
+        // Example: let the frontend handle side-effects based on action payload.
+        // We return a friendly text message, while the frontend acts on meta.subAction.
+        reply = "Sure, I can help with that.";
+      }
     } else if (needsCv) {
       usedTwoStage = true;
 
@@ -77,6 +87,7 @@ router.post("/chat", async (req, res) => {
       meta: {
         intent,
         subAction,
+        payload,
         confidence,
         used_two_stage: usedTwoStage,
         timestamp: new Date().toISOString(),

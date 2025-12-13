@@ -10,8 +10,11 @@ An AI-powered chat application built with React, TypeScript, and Vite on the fro
 
 ### Features
 
-- **Theme Customization**: Toggle between Light and Dark modes via the UI button or by asking the chat (e.g., "switch to dark mode").
-- **Session Management**: Clear chat history via the UI button or by asking the chat (e.g., "clear chat").
+- **Theme Toggling**: Switch between light and dark modes via toggle button or chat command ("Switch to dark mode").
+- **Dynamic Styling**: Change the style of components (main background, title, chat area, input) via natural language (e.g., "Make the background blue", "Change title color to pink").
+- **Style Reset**: Restore default styles with a simple command ("Reset styles").
+- **Chat History**: Persists chat history locally.
+- **Clear Data**: Commands to clear chat history or cache ("Clear chat", "Clear details").
 - **Cache Control**: Clear local storage/cache by asking the chat (e.g., "clear cache").
 
 ---
@@ -143,15 +146,8 @@ Notes:
 
 ## License
 
-This repository is part of a personal portfolio. Feel free to explore and reference code; please contact the author for reuse beyond evaluation or interview purposes.
-
----
-
-## TODO
-
-- Send chat history to backend and LLM
-- Add en/es lang with i18n
-
+This repository is part of a personal portfolio. Feel free to explore and reference code; please contact the author for reuse beyond evaluation or interview- Add en/es lang with i18n
+- Add suggestion pills
 ---
 
 ## Author

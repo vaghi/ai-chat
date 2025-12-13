@@ -12,6 +12,8 @@ export enum SubActionType {
   THEME_TOGGLE = "theme.toggle",
   CLEAR_CACHE = "cache.clear",
   CLEAR_CHAT = "chat.clear",
+  STYLE_CHANGE = "style.change",
+  STYLE_RESET = "style.reset",
 
   // Add future UI ops here...
   // e.g., OPEN_MODAL = "modal.open",
