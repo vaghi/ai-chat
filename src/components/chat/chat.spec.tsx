@@ -4,6 +4,15 @@ import { Chat } from "./chat";
 
 import { MessageSender } from "../../types/types";
 
+// Mock the style store
+jest.mock("../../stores/use-style-store", () => ({
+  useStyleStore: jest.fn((selector) =>
+    selector({
+      componentStyles: {},
+    })
+  ),
+}));
+
 const mockScrollIntoView = jest.fn();
 
 beforeAll(() => {
@@ -53,6 +62,7 @@ const baseProps = {
   showChatHistory: false,
   isLoading: false,
   error: null,
+  inputRef: { current: null },
 };
 
 describe("Chat", () => {
@@ -66,13 +76,16 @@ describe("Chat", () => {
   it("renders input and form but not history when showChatHistory is false", () => {
     render(<Chat {...baseProps} />);
 
-    expect(screen.getByPlaceholderText(/ask me anything/i)).toBeInTheDocument();
+    expect(screen.getByPlaceholderText(/lets get started/i)).toBeInTheDocument();
     expect(screen.queryByTestId("mock-chat-message")).not.toBeInTheDocument();
 
     // FIX: Get the container by traversing up from a reliable, visible element (the textbox)
     const container = screen.getByRole("textbox").closest("div.chatContainer");
     expect(container).toHaveClass("chatContainer");
     expect(container).not.toHaveClass("containerExpanded");
+
+    // Expect feature description to be present
+    expect(screen.getByText(/Hi! I can help you with/i)).toBeInTheDocument();
   });
 
   // Test 2 FIX: DOM Query updated to avoid using getByRole("listitem") which now returns multiple results
@@ -98,7 +111,7 @@ describe("Chat", () => {
 
   it("calls onChangeInput when the input value changes", () => {
     render(<Chat {...baseProps} />);
-    const input = screen.getByPlaceholderText(/ask me anything/i);
+    const input = screen.getByPlaceholderText(/lets get started/i);
 
     fireEvent.change(input, { target: { value: "New message" } });
 
@@ -138,7 +151,7 @@ describe("Chat", () => {
       />
     );
 
-    expect(screen.getByPlaceholderText(/ask me anything/i)).toBeDisabled();
+    expect(screen.getByPlaceholderText(/lets get started/i)).toBeDisabled();
 
     const messages = screen.getAllByTestId("mock-chat-message");
     const loadingMessage = messages.find(

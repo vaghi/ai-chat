@@ -86,7 +86,7 @@ export const Chat = ({
             className={styles.chatInput}
             name="message"
             type="text"
-            placeholder="Ask me anything about my CV..."
+            placeholder="Lets get started..."
             autoComplete="off"
             value={inputValue}
             onChange={(e) => onChangeInput(e.target.value)}
