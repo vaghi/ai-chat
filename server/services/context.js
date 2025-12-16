@@ -55,13 +55,14 @@ export async function getCvSummary() {
 
   // 3) If no cache or expired, generate a concise summary via LLM (first-stage)
   //    Keep token budget small; we don't need every detail for retrieval-quality answers.
-  const system = `
+const system = `
 Summarize the following CV JSON into a compact, information-dense brief suitable for answering questions about roles, companies, dates, responsibilities, stack, and achievements.
 
 Output constraints:
-- 700–1000 tokens max.
-- Prefer bullet points grouped by Company/Role with dates and 1–3 key achievements each.
-- Include a short “Skills/Stack” consolidation at the end.
+- 700–1200 tokens max.
+- Group by Company/Role.
+- For EACH role, MUST include the "technologies_used" list explicitly. Do not consolidate skills at the end.
+- Use bullet points for responsibilities.
 - NO PII beyond what is already present.
 `.trim();
 

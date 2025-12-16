@@ -98,6 +98,7 @@ export const Chat = ({
             disabled={!inputValue.trim() || isLoading}
             id="send-button"
             type="submit"
+            style={componentStyles["button"]}
           />
         </div>
       </form>

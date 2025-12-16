@@ -45,6 +45,7 @@
       "title": "Senior Frontend Developer",
       "company": "Squire",
       "period": { "from": "01/2025", "to": "09/2025" },
+      "time": 9,
       "technologies_used": [
         "ReactJs",
         "React Query",
@@ -63,6 +64,7 @@
       "title": "Senior Frontend Developer",
       "company": "Cultos",
       "period": { "from": "11/2022", "to": "12/2024" },
+      "time": 26,
       "technologies_used": [
         "ReactJs",
         "Typescript",
@@ -89,6 +91,7 @@
       "title": "Senior Frontend Developer / CTL",
       "company": "Distillery",
       "period": { "from": "02/2021", "to": "10/2022" },
+      "time": 21,
       "technologies_used": [
         "ReactJs",
         "Redux",
@@ -113,6 +116,7 @@
       "title": "Senior Fronnd Developer / Tech Lead",
       "company": "J.P. Morgan & Chase",
       "period": { "from": "07/2018", "to": "02/2021" },
+      "time": 32,
       "technologies_used": [
         "ReactJs",
         "Redux",
@@ -136,6 +140,7 @@
       "title": "Senior Full Stack Developer",
       "company": "Resolvit",
       "period": { "from": "10/2018", "to": "06/2019" },
+      "time": 9,
       "technologies_used": ["ReactJs", "Redux", "Angular 6", "CSS", "Java"],
       "responsibilities": [
         "Developing frontend and backend infrastructures.",
@@ -147,6 +152,7 @@
       "title": "Senior Full Stack Developer",
       "company": "Kapsch TrafficCom AG",
       "period": { "from": "02/2017", "to": "09/2018" },
+      "time": 20,
       "technologies_used": [
         "AngularJs",
         "CSS",
@@ -167,6 +173,7 @@
       "title": "Semi-Sr Frontend Developer",
       "company": "Inclusion The Cloud Company",
       "period": { "from": "10/2015", "to": "01/2017" },
+      "time": 16,
       "technologies_used": [
         "Javascript",
         "SAPUI5",
@@ -189,6 +196,7 @@
       "title": "Semi-Sr Full Stack Developer",
       "company": "Baufest",
       "period": { "from": "02/2015", "to": "09/2015" },
+      "time": 8,
       "technologies_used": [".Net", "Javascript", "Bootstrap", "CSS"],
       "responsibilities": [
         "Develop web applications with .Net.",
@@ -200,6 +208,7 @@
       "title": "Jr Full Stack Developer",
       "company": "IBM",
       "period": { "from": "03/2014", "to": "02/2015" },
+      "time": 12,
       "technologies_used": [
         ".Net",
         "Java",

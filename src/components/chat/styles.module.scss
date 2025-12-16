@@ -7,12 +7,14 @@
   background-color: var(--Background-Primary);
   color: var(--Text-Primary);
   padding: 16px 3px 3px 3px;
-  gap: 12px;
+  gap: 20px;
   border-radius: var(--Border-Radius-XL);
-  width: 300px;
+  width: 400px;
   transition: width 0.7s, height 0.7s;
   height: auto;
+  height: auto;
   min-height: 52px;
+  border: 1px solid transparent;
 }
 
 .chatInputContainer {
